@@ -1,0 +1,166 @@
+/* :root {
+} */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #999;
+}
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: white;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  margin-left: 0%;
+  margin-top: 1 0%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  border: 0;
+}
+
+/* Nav bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  text-transform: uppercase;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav li {
+  list-style-type: none;
+  margin-left: 20px;
+}
+nav h1 {
+  font-size: 3em;
+}
+nav p,
+nav a {
+  color: #777;
+  font-weight: 300;
+}
+.nav-logo {
+  font-size: 1.4rem;
+  color: #999;
+}
+.nav-logo img {
+  width: 30px;
+}
+
+/* Sign Up Page */
+
+/* -----XXXX----- */
+
+/* Footer */
+.showcase-bottom {
+  max-width: 1850px;
+  width: 100%;
+  margin: 0;
+  padding: 70px 56px;
+  background-color: white;
+  z-index: 2;
+}
+.showcase-bottom a {
+  z-index: 2;
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  color: black;
+  margin-top: 0;
+  margin-bottom: 50px;
+  z-index: 2;
+}
+.footer-row {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 0.7fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  z-index: 2;
+}
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+.footer-link {
+  font-size: 0.9 rem;
+  color: black;
+  /* padding: 10px 50px; */
+  margin-bottom: 20px;
+  z-index: 2;
+}
+.footer-column-title {
+  color: #999;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+.footer-logo {
+  font-size: 1.4rem;
+  color: black;
+  font-weight: 600;
+  font-family: cursive;
+}
+
+.footer-discription {
+  margin-top: 40px;
+  padding-right: 50px;
+  text-align: center-left;
+  color: rgb(54, 54, 54);
+}
+.footer-hr {
+  margin-top: 100px;
+}
+.app-store {
+  width: 150px;
+  align-items: center;
+}
+.copyright {
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+/* Media Elements */
+
+@media (max-width: 750px) {
+  .footer {
+    padding: 70px 30px;
+  }
+  .footer-row {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 550px) {
+}
+@media (max-width: 500px) {
+  .footer {
+    padding: 70px 15px;
+  }
+  .footer-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
