@@ -139,10 +139,35 @@ nav a {
   width: 150px;
   align-items: center;
 }
+
 .copyright {
   align-items: center;
   text-align: center;
   margin-top: 20px;
+}
+footer {
+  background-color: #222;
+  color: #fff;
+  font-size: 14px;
+  bottom: 0;
+  /* position: fixed; */
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 999;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer i {
+  color: #2bf8ff;
+}
+
+footer a {
+  color: #2bf8ff;
+  text-decoration: none;
 }
 /* Media Elements */
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs') %>
+  <!-- for head of the html -->
+
+  <body>
+    <%- include('./partials/nav.ejs') %>
+      <!-- for navigation bar -->
+
+      <div class="details content">
+        <div class="content-wrapper">
+          <h2>
+            <%=task.title%>
+          </h2>
+          <div class="content">
+            <p class="description">
+
+              <%=task.description%>
+            </p>
+          </div>
+        </div>
+        <div class="edit">
+          <a class="update" data-doc="<%=task._id%>"> Mark Compete &#10004; </a>
+          <a class="delete" data-doc="<%=task._id%>"> Delete &#10007; </a>
+        </div>
+      </div>
+
+      <%- include('./partials/footer.ejs') %>
+        <!-- for footer -->
+
+        <script>
+          // update listener
+          const update = document.querySelector('a.update');
+          update.addEventListener('click', (e) => {
+            const endpoint = `/tasks/${trashcan.dataset.doc}`;
+
+            fetch(endpoint, {
+              method: 'PUT'
+            })
+              .then((response) => response.json())
+              .then((data) => window.location.href = data.redirect)
+              .catch(err => console.log(err));
+
+          });
+
+          // Delete listener
+          const trashcan = document.querySelector('a.delete');
+          trashcan.addEventListener('click', (e) => {
+            const endpoint = `/tasks/${trashcan.dataset.doc}`;
+
+            fetch(endpoint, {
+              method: 'DELETE'
+            })
+              .then((response) => response.json())
+              .then((data) => window.location.href = data.redirect)
+              .catch(err => console.log(err));
+
+          })
+        </script>
+  </body>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs') %>
+
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+      <div class="add-task content">
+        <form action="/tasks" method="POST">
+          <label for="title">Task Title</label>
+          <input type="text" id="title" required name="title" />
+          <label for="title">Task Description</label>
+          <textarea id="description" required name="description"></textarea>
+          <button>Submit</button>
+        </form>
+      </div>
+      <%- include('./partials/footer.ejs')%>
+  </body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/header.ejs') %>
+
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+      <div class="tasks content">
+        <h2> All Tasks </h2>
+        <% if (tasks.length> 0) { tasks.forEach(task => {%>
+          <% if (task.completed==false) { %>
+            <a class="showDetails" href="/tasks/<%=task._id%>">
+              <h3 class="title">
+                <%=task.title%>
+              </h3>
+              <p class="status inc">Incomplete!</p>
+            </a>
+            <%} }); tasks.forEach(task=> { %>
+              <% if (task.completed==true) { %>
+                <a class="showDetails" href="/tasks/<%=task._id%>">
+                  <h3 class="title">
+                    <%=task.title%>
+                  </h3>
+                  <p class="status com">Completed</p>
+                </a>
+                <%} }); } else { %>
+                  <p class="no-tasks">There are no Tasks to display !!</p>
+                  <%}%>
+      </div>
+
+      <%- include('./partials/footer.ejs') %>
+
+  </body>
+
+</html>
