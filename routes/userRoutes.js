@@ -1,20 +1,21 @@
 const express = require('express');
-const userController = require('../controllers/userController.js');
+
+const userController = require('../controllers/userController');
+const { requireAuth, checkUser } = require('../middleware/authMiddleware');
+const taskController = require('../controllers/taskController');
 
 const routes = express.Router();
 
-routes.get('/userhomepage', (req, res) => {
+routes.get('*', checkUser);
+
+routes.get('/userhomepage', requireAuth, (req, res) => {
   res.render('../views/user/userHomepage.ejs');
 });
 
-routes.get('/profile', (req, res) => {
+routes.get('/profile', requireAuth, (req, res) => {
   res.render('../views/user/userProfile.ejs');
 });
 
-routes.get('/tasks', (req, res) => {
-  res.render('../views/taskManager/index.ejs');
-});
-
-routes.get('/logout', userConntroller.logout);
+routes.get('/logout', userController.logout_get);
 
 module.exports = routes;

@@ -1,10 +1,11 @@
-const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 
+const User = require('../models/user');
+const Tasks = require('../models/task');
 
 // Handle errors
 const handleErrors = (err) => {
-  
+
   ///console.log('error code:- ', err.code);
   let errors = { name: '', email: '', password: '' };
 
@@ -40,6 +41,23 @@ const createToken = (id) => {
     expiresIn: maxAge
   });
 };
+
+function initializeTasks(userId) {
+
+  const newTask = { userId: userId, tasks: { title: '', description: '', completed: false } };
+
+  console.log(newTask);
+
+  const task = new Task(newTask);
+
+  task.save()
+    .then((result) => {
+      console.log(result.data);
+    })
+    .catch(err => console.log(err));
+
+}
+
 
 module.exports.signup_post = async (req, res) => {
   const { name, email, password } = req.body;

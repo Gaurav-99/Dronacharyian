@@ -1,9 +1,7 @@
 <div>
   <nav>
     <div class="site-title">
-      <a href="/">
-        <h1 class="nav-logo"><img src="/imgs/_D-icon.jpg" /> ronacharyian</h1>
-      </a>
+      <h1 class="nav-logo"><img src="/imgs/_D-icon.jpg" /> ronacharyian</h1>
     </div>
     <ul class="nav-mid">
       <li><a href="/userhomepage">Home</a></li>
@@ -12,7 +10,12 @@
       <li><a href="/profile">Profile</a></li>
     </ul>
     <ul class="nav-left">
-      <li class="login-register-btn"><a href="/logout">Logout</a></li>
+      <% if (user) { %>
+        <li class="user-email">
+          <%-user.email %>
+        </li>
+        <% } %>
+          <li class="login-register-btn"><a href="/logout">Logout</a></li>
     </ul>
   </nav>
 </div>

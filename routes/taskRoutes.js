@@ -1,38 +1,78 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
+
 const Task = require('../models/task');
 
-const router = express.Router();
+const routes = express.Router();
+
+// get token function
+function getUserId(req) {
+  const token = req.cookies.jwt;
+
+  if (token) {
+    let res = jwt.verify(token, 'dronaAcharya');
+    if (res.id) {
+      return res.id;
+    } else {
+      return null;
+    }
+  } else {
+    return null;
+    ///res.redirect('/sign');
+  }
+}
+
 
 // Here '/' -> '/tasks'
-router.get('/tasks', (req, res) => {
+routes.get('/', (req, res) => {
 
-  Task.find().sort({ createdAt: -1 })
-    .then((result) => {
-      console.log("Results of get all the tasks:- ", result);
-      res.render('index', { title: 'All Tasks', tasks: result });
-    })
-    .catch(err => console.log(err));
-
+  if (!getUserId(req)) {
+    res.redirect('/sign');
+  }
+  else {
+    Task.find().sort({ createdAt: -1 })
+      .then((result) => {
+        console.log("Results of get all the tasks:- ", result);
+        res.render('../views/taskManager/index', { title: 'All Tasks', tasks: result });
+      })
+      .catch(err => console.log(err));
+  }
 });
 
-router.get('/tasks/add', (req, res) => {
-  res.render('add', { title: 'add a new task' });
+routes.get('/add', (req, res) => {
+  if (!getUserId(req)) {
+    res.redirect('./sign');
+  } else {
+    res.render('../views/taskManager/add', { title: 'add a new task' });
+  }
 });
 
-router.get('/tasks/:id', (req, res) => {
+routes.get('/:id', (req, res) => {
+
+  if (!getUserId(req)) {
+    res.redirect('/sign');
+  }
   const id = req.params.id;
   Task.findById(id)
     .then((result) => {
-      res.render('detail', { title: 'task details', task: result });
+      res.render('../views/taskManager/detail', { title: 'task details', task: result });
     })
     .catch(err => console.log(err));
 });
 
 
 // Add a new task
-router.post('/tasks', (req, res) => {
+routes.post('/add', (req, res) => {
+
+  const userId = getUserId(req);
+  if (!userId) {
+    res.redirect('/sign');
+  }
+
   const newTask = req.body;
+  newTask["userId"] = userId;
   newTask["completed"] = false;
+
   console.log(newTask);
   const task = new Task(newTask);
 
@@ -41,11 +81,10 @@ router.post('/tasks', (req, res) => {
       res.redirect('/tasks');
     })
     .catch(err => console.log(err));
-
 });
 
 // Update a task to completed
-router.put('/tasks/:id', (req, res) => {
+routes.put('/:id', (req, res) => {
 
   const task = new Task({
     _id: req.params.id,
@@ -61,7 +100,7 @@ router.put('/tasks/:id', (req, res) => {
 
 });
 
-router.delete('/tasks/:id', (req, res) => {
+routes.delete('/:id', (req, res) => {
   const id = req.params.id;
 
   Task.findByIdAndDelete(id)
@@ -72,4 +111,4 @@ router.delete('/tasks/:id', (req, res) => {
 
 });
 
-module.exports = router;
+module.exports = routes;
