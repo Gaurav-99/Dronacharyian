@@ -15,7 +15,7 @@ ul {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  color: #222;
+  color: black;
 }
 
 /* nav & footer styles */
@@ -35,14 +35,22 @@ nav ul {
 nav li {
   list-style-type: none;
   margin-left: 20px;
+  color: black;
 }
 nav h1 {
   font-size: 3em;
 }
 nav p,
 nav a {
-  color: #777;
-  font-weight: 300;
+  color: black;
+  font-weight: 600;
+}
+.nav-logo {
+  font-size: 1.4rem;
+  color: #999;
+}
+.nav-logo img {
+  width: 30px;
 }
 footer {
   color: #777;

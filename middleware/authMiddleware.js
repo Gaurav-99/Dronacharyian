@@ -17,7 +17,7 @@ const requireAuth = (req, res, next) => {
       }
     })
   } else {
-    res.redirect('/sign');
+    res.redirect('/sign');  
   }
 }
 

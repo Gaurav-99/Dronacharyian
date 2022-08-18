@@ -10,7 +10,7 @@ body {
   background: white;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  color: #999;
+  color: #999999;
 }
 ul {
   list-style: none;
@@ -20,7 +20,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: white;
+  color: black;
   text-align: center;
 }
 h1 {
@@ -39,6 +39,16 @@ img {
 }
 
 /* Nav bar */
+.nav-background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  width: 100%;
+  height: 360 px;
+  overflow: hidden;
+  background-image: linear-gradient(150deg, #53f 15%, #05d5ff 70%, #a6ffcb 94%);
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -46,6 +56,9 @@ nav {
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
   text-transform: uppercase;
+  background-image: linear-gradient(150deg, #53f 15%, #05d5ff 70%, #a6ffcb 94%);
+  height: 200px;
+  margin-top: 0;
 }
 nav ul {
   display: flex;
@@ -71,6 +84,12 @@ nav a {
 .nav-logo img {
   width: 30px;
 }
+/* homepage */
+.main-content {
+  padding: 8rem 8rem;
+}
+
+/* homepage style ends */
 
 /* Sign Up Page */
 
@@ -84,6 +103,7 @@ nav a {
   padding: 70px 56px;
   background-color: white;
   z-index: 2;
+  background-image: linear-gradient(150deg, #53f 15%, #05d5ff 70%, #a6ffcb 94%);
 }
 .showcase-bottom a {
   z-index: 2;
@@ -143,14 +163,14 @@ nav a {
 .copyright {
   align-items: center;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 footer {
   background-color: #222;
   color: #fff;
   font-size: 14px;
   bottom: 0;
-  /* position: fixed; */
+  position: fixed;
   left: 0;
   right: 0;
   text-align: center;

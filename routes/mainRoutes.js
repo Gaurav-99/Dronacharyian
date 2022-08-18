@@ -11,8 +11,9 @@ function checkUser(req) {
 
     if (res.id) {
       return true;
+    } else {
+      return false;
     }
-    return false;
   } else {
     return false;
   }

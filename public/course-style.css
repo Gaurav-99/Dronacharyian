@@ -1,0 +1,151 @@
+.cards {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+div {
+  display: block;
+}
+body {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: lighter;
+  color: #444444;
+  background-color: #f4f3f2;
+  margin: 0;
+}
+.cards-heading {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: lighter;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+}
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.cards {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px) .cards-list {
+  padding: 0;
+}
+.cards-list {
+  list-style-type: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 20px;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+.card {
+  display: inline-block;
+  min-width: 250px;
+  max-width: 23%;
+  vertical-align: top;
+  background-color: white;
+  text-align: left;
+  margin: 10px;
+}
+.cards-list {
+  list-style-type: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 20px;
+}
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  color: #295cb1;
+}
+.card .card-wrapper {
+  padding: 0 10px;
+  margin-bottom: 15px;
+}
+.clearfix {
+  display: block;
+}
+.card .card-title {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: lighter;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card .card-meta {
+  font-size: 12px;
+}
+.card .card-content {
+  display: block;
+  display: -webkit-box;
+  height: 105px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+ul ul {
+  list-style-type: circle;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+background-image: url(https://firebasestorage.googleapis.com/v0/b/hypatia-8d923.appspot.com/o/files%2Fcomputing-it.jpg?alt=media&token=fc4dbb8b-8154-4980-a288-98a8deaa24cc);
+}
+.card .card-thumb {
+    width: 100%;
+    text-align: center;
+    height: 150px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 10px;
+    display: table;
+    font-size: 70px;
+    color: #ffffff;
+    background-color: #6ad0dc;
+}

@@ -35,7 +35,7 @@ const handleErrors = (err) => {
 }
 
 // Create token
-const maxAge = 60 * 60;
+const maxAge = 60 * 60 * 2;
 const createToken = (id) => {
   return jwt.sign({ id }, 'dronaAcharya', {
     expiresIn: maxAge
@@ -60,6 +60,8 @@ function initializeTasks(userId) {
 
 
 module.exports.signup_post = async (req, res) => {
+  console.log('sigup request body:- ', req.file.filename);
+
   const { name, email, password } = req.body;
 
   try {

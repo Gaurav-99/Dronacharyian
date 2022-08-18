@@ -1,13 +1,20 @@
 <nav>
   <div class="site-title">
     <a href="/">
-      <h1>Mini Task Manager</h1>
+      <h1 class="nav-logo"><img src="/imgs/_D-icon.jpg" /> ronacharyian</h1>
     </a>
     <p>Manage all your tasks here</p>
   </div>
   <ul>
-    <li><a href="/">Tasks</a></li>
+
     <li><a href="/tasks/add">Add Task</a></li>
-    <li><a href="/tasks">About</a></li>
+  </ul>
+  <ul class="nav-left">
+    <li><a href="/homepage">Home</a></li>
+    <% if (user) { %>
+      <li class="user-email">
+        <%-user.email %>
+      </li>
+      <% } %>
   </ul>
 </nav>
