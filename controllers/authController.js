@@ -60,7 +60,7 @@ function initializeTasks(userId) {
 
 
 module.exports.signup_post = async (req, res) => {
-  console.log('sigup request body:- ', req.file.filename);
+  console.log('sigup request body:- ', req.file);
 
   const { name, email, password } = req.body;
 

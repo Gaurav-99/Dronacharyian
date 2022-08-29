@@ -57,8 +57,9 @@ nav {
   border-bottom: 1px solid #ddd;
   text-transform: uppercase;
   background-image: linear-gradient(150deg, #53f 15%, #05d5ff 70%, #a6ffcb 94%);
-  height: 200px;
+  height: 100px;
   margin-top: 0;
+  align-items: center;
 }
 nav ul {
   display: flex;
@@ -74,15 +75,40 @@ nav h1 {
 }
 nav p,
 nav a {
-  color: #777;
-  font-weight: 300;
+  color: rgb(56, 52, 52);
+  font-weight: 700;
+
 }
 .nav-logo {
-  font-size: 1.4rem;
-  color: #999;
+  font-size: 1.6rem;
+  color: rgb(36, 130, 189);
+  font-style: italic;
+  font-weight: 900;
 }
 .nav-logo img {
   width: 30px;
+  margin-left: 10px;
+}
+.nav-mid {
+  font-size: 1.4rem;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgb(54, 218, 224);
+  width: 170px;
+  height: 40px;
+  margin-right: 10px;
+  margin: top 0;
+  padding: 0;
+}
+.login-register-btn{
+  margin: top 0;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  
 }
 /* homepage */
 .main-content {
@@ -135,22 +161,23 @@ nav a {
   z-index: 2;
 }
 .footer-column-title {
-  color: #999;
-  font-weight: 600;
+  color: rgb(34, 31, 31);
+  font-weight: 700;
   margin-bottom: 40px;
 }
 .footer-logo {
-  font-size: 1.4rem;
-  color: black;
+  font-size: 1.6rem;
+  color: rgb(36, 130, 189);
   font-weight: 600;
-  font-family: cursive;
+  font-style: italic;
+  text-transform: uppercase;
 }
 
 .footer-discription {
   margin-top: 40px;
   padding-right: 50px;
   text-align: center-left;
-  color: rgb(54, 54, 54);
+  color: rgb(16, 16, 16);
 }
 .footer-hr {
   margin-top: 100px;
