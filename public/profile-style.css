@@ -57,10 +57,12 @@ nav li {
 }
 nav h1 {
   font-size: 3em;
+  font-weight: 700;
+  color: black;
 }
 nav p,
 nav a {
-  color: #777;
+  color: rgb(235, 230, 230);
   font-weight: 300;
 }
 .nav-logo {
@@ -69,6 +71,11 @@ nav a {
 }
 .nav-logo img {
   width: 30px;
+}
+
+.nav-mid-home{
+  color: #000;
+  font-weight: 700;
 }
 
 /*  */
@@ -9131,4 +9138,4 @@ button.close {
     display: inline-flex !important;
   }
 }
-/*# sourceMappingURL=bootstrap.min.css.map */
+
