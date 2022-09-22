@@ -13,6 +13,6 @@ page, profile page, Task-manager, and logout functionality.
 - MongoDB: DataBase
 - Visual Studio Code: IDE Used to build and deploy project locally.
  
-*Work in progress.
+**Work in progress
  
 > This app was build for studying purposes only.
