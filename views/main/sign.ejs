@@ -2,210 +2,177 @@
 <html lang="en">
 
 <head>
-  <%- include('../partials/header.ejs') %>
-    <link rel="stylesheet" href="/udemy-style.css" />
-    <style>
-      body {
-        background-color: #f7f9fa;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-
-      .auth-container {
-        display: flex;
-        justify-content: center;
-        gap: 48px;
-        /* Two columns for desktop */
-        padding: 48px 24px;
-        max-width: 900px;
-        margin: 0 auto;
-        flex-grow: 1;
-      }
-
-      .auth-box {
-        background: white;
-        padding: 24px;
-        width: 100%;
-        max-width: 400px;
-        /* box-shadow: 0 2px 4px rgba(0,0,0,0.08); border: 1px solid #d1d7dc; */
-        /* Optional: card look */
-      }
-
-      .auth-title {
-        font-weight: 700;
-        font-size: 18px;
-        margin-bottom: 24px;
-        color: #1c1d1f;
-        text-align: left;
-        border-bottom: 1px solid #d1d7dc;
-        padding-bottom: 12px;
-      }
-
-      .form-group {
-        margin-bottom: 16px;
-      }
-
-      input {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #1c1d1f;
-        font-size: 16px;
-        color: #1c1d1f;
-      }
-
-      .btn-submit {
-        width: 100%;
-        padding: 12px;
-        background-color: #a435f0;
-        /* Udemy Purple */
-        color: white;
-        font-weight: 700;
-        border: none;
-        cursor: pointer;
-        margin-top: 8px;
-      }
-
-      .btn-submit:hover {
-        background-color: #8710d8;
-      }
-
-      .error {
-        color: #b32d0f;
-        /* Error Red */
-        font-size: 14px;
-        margin-top: 4px;
-        font-weight: 700;
-      }
-
-      @media (max-width: 768px) {
-        .auth-container {
-          flex-direction: column;
-          align-items: center;
-        }
-      }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dronacharyian</title>
+  <link rel="shotcut icon" type="image/png" href="/imgs/logo2-edit.jpg" />
+  <link rel="stylesheet" href="/sign-style.css" />
 </head>
 
 <body>
+
   <%- include('../partials/nav.ejs') %>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form class="sign-up-form" action="/signup" method="POST">
+          <h1>Register</h1>
+          <!--           <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your email for registration</span> -->
+          <input type="text" placeholder="Full Name" name="name" required />
+          <div class="name error"></div>
+          <input type="email" placeholder="Email" name="email" required />
+          <div class="email error"></div>
+          <input type="password" placeholder="Password" name="password" required />
+          <div class="password error"></div>
 
-    <div class="auth-container">
+          <!--<label for="img">Upload Profile Image</label>
+          <input type="file" id="img" name="img" accept="image/x-png,image/gif,image/jpeg, image/jpg"> -->
 
-      <!-- Login Section -->
-      <div class="auth-box">
-        <h2 class="auth-title">Log In to Your Account</h2>
-        <form class="login-form">
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Email" required />
-            <div class="email error login"></div>
-          </div>
-          <div class="form-group">
-            <input type="password" name="password" placeholder="Password" required />
-            <div class="password error login"></div>
-          </div>
-          <button class="btn-submit">Log In</button>
-          <div style="margin-top: 16px; text-align: center; font-size: 14px;">
-            <a href="#" style="color: #5624d0; text-decoration: underline;">Forgot Password?</a>
-          </div>
+          <button>Sign Up</button>
         </form>
       </div>
-
-      <!-- Signup Section -->
-      <div class="auth-box">
-        <h2 class="auth-title">Sign Up and Start Learning</h2>
-        <form class="sign-up-form">
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Full Name" required />
-            <div class="name error"></div>
+      <div class="form-container sign-in-container">
+        <form class="login-form" action="/login" method="POST">
+          <h1>Sign in</h1>
+          <!--           <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
           </div>
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Email" required />
-            <div class="email error"></div>
-          </div>
-          <div class="form-group">
-            <input type="password" name="password" placeholder="Password" required />
-            <div class="password error"></div>
-          </div>
-          <p style="font-size: 12px; color: #6a6f73; margin-bottom: 16px;">
-            By signing up, you agree to our Terms of Use and Privacy Policy.
-          </p>
-          <button class="btn-submit" style="background-color: #1c1d1f;">Sign Up</button>
+          <span>or use your account</span> -->
+          <br>
+          <div class="email error login"></div>
+          <input type="email" placeholder="Email" name="email" required />
+          <input type="password" placeholder="Password" name="password" required />
+          <div class="password error login"></div>
+          <a href="#">Forgot your password?</a>
+          <button>Sign In</button>
         </form>
       </div>
-
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>To keep connected with us please login with your personal info</p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Eklavyians!</h1>
+            <p>Enter your personal details and start your journey with us</p>
+            <button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <%- include('../partials/footer.ejs') %>
 
-      <script>
-        // Use the existing logic but improved/simplified
-        const suForm = document.querySelector('.sign-up-form');
-        const nameError = document.querySelector('.name.error');
-        const emailError = document.querySelector('.email.error');
-        const passwordError = document.querySelector('.password.error');
-
-        if (suForm) {
-          suForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            nameError.textContent = '';
-            emailError.textContent = '';
-            passwordError.textContent = '';
-
-            const name = suForm.name.value;
-            const email = suForm.email.value;
-            const password = suForm.password.value;
-
-            try {
-              const res = await fetch('/signup', {
-                method: 'POST',
-                body: JSON.stringify({ name, email, password }),
-                headers: { 'Content-Type': 'application/json' }
-              });
-              const data = await res.json();
-              if (data.errors) {
-                nameError.textContent = data.errors.name;
-                emailError.textContent = data.errors.email;
-                passwordError.textContent = data.errors.password;
-              }
-              if (data.user) {
-                location.assign('/userhomepage');
-              }
-            } catch (err) { console.log(err); }
-          });
-        }
-
-        const lgForm = document.querySelector('.login-form');
-        const lgEmailError = document.querySelector('.email.error.login');
-        const lgPasswordError = document.querySelector('.password.error.login');
-
-        if (lgForm) {
-          lgForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            lgEmailError.textContent = '';
-            lgPasswordError.textContent = '';
-
-            const email = lgForm.email.value;
-            const password = lgForm.password.value;
-
-            try {
-              const res = await fetch('/login', {
-                method: 'POST',
-                body: JSON.stringify({ email, password }),
-                headers: { 'Content-Type': 'application/json' }
-              });
-              const data = await res.json();
-              if (data.errors) {
-                lgEmailError.textContent = data.errors.email;
-                lgPasswordError.textContent = data.errors.password;
-              }
-              if (data.user) {
-                location.assign('/userhomepage');
-              }
-            } catch (err) { console.log(err); }
-          });
-        }
-      </script>
+    <footer class="copyright">Copyright &copy; lDronacharyian 2021</footer>
 </body>
+<script>
+  //for ui/ux
+  const signUpButton = document.getElementById('signUp');
+  const signInButton = document.getElementById('signIn');
+  const container = document.getElementById('container');
+  //console.log(errors);
+  signUpButton.addEventListener('click', () => {
+    container.classList.add("right-panel-active");
+  });
+
+  signInButton.addEventListener('click', () => {
+    container.classList.remove("right-panel-active");
+  });
+
+  // SignUp form
+  const suForm = document.querySelector('.sign-up-form');
+  const nameError = document.querySelector('.name.error');
+  const emailError = document.querySelector('.email.error');
+  const passwordError = document.querySelector('.password.error');
+
+  suForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    //reset errors
+    nameError.textContent = '';
+    emailError.textContent = '';
+    passwordError.textContent = '';
+    // get values
+    const name = suForm.name.value;
+    const email = suForm.email.value;
+    const password = suForm.password.value;
+
+    try {
+      const res = await fetch('/signup', {
+        method: 'POST',
+        body: JSON.stringify({ name, email, password }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.errors) {
+        nameError.textContent = data.errors.name;
+        emailError.textContent = data.errors.email;
+        passwordError.textContent = data.errors.password;
+      }
+
+      if (data.user) {
+        console.log(data.user);
+        location.assign('/userhomepage');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+  });
+
+
+  //login form
+  const lgForm = document.querySelector('.login-form');
+  const lgEmailError = document.querySelector('.email.error.login');
+  const lgPasswordError = document.querySelector('.password.error.login');
+
+  lgForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    //reset errors
+    lgEmailError.textContent = '';
+    lgPasswordError.textContent = '';
+
+    // get values
+    const email = lgForm.email.value;
+    const password = lgForm.password.value;
+
+    try {
+      const res = await fetch('/login', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      const data = await res.json();
+      console.log('res.data:-', data);
+
+      if (data.errors) {
+        lgEmailError.textContent = data.errors.email;
+        lgPasswordError.textContent = data.errors.password;
+      }
+
+      if (data.user) {
+        location.assign('/userhomepage');
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+    console.log('login-end');
+  });
+
+
+
+
+</script>
 
 </html>
