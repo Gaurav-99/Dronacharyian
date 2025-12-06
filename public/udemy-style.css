@@ -1,0 +1,281 @@
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    padding: 0 24px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    /* Subtle shadow like Udemy */
+    background-image: none;
+    /* Override old gradient */
+    border-bottom: none;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: transparent;
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+.nav-logo {
+    font-family: 'Times New Roman', serif;
+    /* Or keep existing font */
+    font-size: 24px;
+    font-weight: bold;
+    color: #1c1d1f;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 32px;
+    width: auto;
+    margin-right: 8px;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 24px;
+    display: flex;
+    align-items: center;
+    background-color: #f7f9fa;
+    border: 1px solid #1c1d1f;
+    border-radius: 9999px;
+    padding: 10px 16px;
+    height: 48px;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    flex-grow: 1;
+    margin-left: 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+.nav-mid {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1c1d1f;
+}
+
+.nav-mid a {
+    color: #1c1d1f;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-mid a:hover {
+    color: #5624d0;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid #1c1d1f;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-login {
+    background-color: white;
+    color: #1c1d1f;
+}
+
+.btn-signup {
+    background-color: #1c1d1f;
+    color: white;
+}
+
+.btn-signup:hover {
+    background-color: #333;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 400px;
+    background-color: #f7f9fa;
+    /* Fallback */
+    background-image: url('https://img-c.udemycdn.com/notices/web_carousel_slide/image/e6cc1a30-2ee2-4b88-8797-15afb13824f9.jpg');
+    /* Example Udemy-like banner */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding-left: 48px;
+}
+
+.hero-box {
+    background-color: white;
+    padding: 24px;
+    max-width: 440px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.hero-box h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.2;
+    text-align: left;
+    /* Override global center */
+    color: #1c1d1f;
+}
+
+.hero-box p {
+    font-size: 16px;
+    margin-bottom: 0;
+    color: #1c1d1f;
+}
+
+/* Featured Courses */
+.section-courses {
+    padding: 48px 24px;
+    max-width: 1340px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: left;
+    color: #1c1d1f;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 32px;
+}
+
+.course-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.course-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border: 1px solid #d1d7dc;
+}
+
+.course-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 8px;
+    line-height: 1.2;
+    color: #1c1d1f;
+    text-align: left;
+}
+
+.course-author {
+    font-size: 12px;
+    color: #6a6f73;
+    margin: 4px 0;
+    text-align: left;
+}
+
+.course-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #b4690e;
+    text-align: left;
+}
+
+.course-rating span {
+    color: #e59819;
+}
+
+.course-price {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 8px;
+    color: #1c1d1f;
+    text-align: left;
+}
+
+/* Categories */
+.categories-section {
+    padding: 48px 24px;
+    background-color: #f7f9fa;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    max-width: 1340px;
+    margin: 0 auto;
+}
+
+.category-card {
+    background: white;
+    padding: 16px;
+    border: 1px solid #d1d7dc;
+    font-weight: 700;
+    text-align: center;
+    transition: box-shadow 0.2s;
+    color: #1c1d1f;
+}
+
+.category-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Responsive Overrides */
+@media (max-width: 768px) {
+    .footer-row {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 24px;
+    }
+
+    .hero {
+        padding-left: 24px;
+        justify-content: center;
+    }
+
+    .hero-box {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-row {
+        grid-template-columns: 1fr !important;
+    }
+
+    nav .nav-mid,
+    nav .search-bar {
+        display: none;
+    }
+}
