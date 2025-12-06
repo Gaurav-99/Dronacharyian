@@ -1,16 +1,24 @@
+/* --- Brand Refresh: Teal Theme --- */
+
+:root {
+    --brand-primary: #00C4CC;
+    --brand-primary-hover: #009aa0;
+    --brand-dark: #0D2A30;
+    --brand-text: #0e3f45;
+    --brand-bg: #E0F7F8;
+    --nav-height: 72px;
+}
+
 /* Navigation */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 72px;
+    height: var(--nav-height);
     padding: 0 24px;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    /* Subtle shadow like Udemy */
-    background-image: none;
-    /* Override old gradient */
-    border-bottom: none;
+    border-bottom: 2px solid var(--brand-bg);
     position: relative;
     z-index: 1000;
 }
@@ -19,18 +27,13 @@ nav {
     display: flex;
     align-items: center;
     gap: 16px;
-    background: transparent;
-    width: auto;
-    height: auto;
-    margin: 0;
 }
 
 .nav-logo {
     font-family: 'Times New Roman', serif;
-    /* Or keep existing font */
     font-size: 24px;
     font-weight: bold;
-    color: #1c1d1f;
+    color: var(--brand-dark);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -42,16 +45,23 @@ nav {
     margin-right: 8px;
 }
 
+/* Search Bar */
 .search-bar {
     flex-grow: 1;
     margin: 0 24px;
     display: flex;
     align-items: center;
     background-color: #f7f9fa;
-    border: 1px solid #1c1d1f;
+    border: 1px solid #d1d7dc;
     border-radius: 9999px;
     padding: 10px 16px;
     height: 48px;
+    transition: border-color 0.2s;
+}
+
+.search-bar:focus-within {
+    border-color: var(--brand-primary);
+    background-color: white;
 }
 
 .search-bar input {
@@ -61,25 +71,26 @@ nav {
     margin-left: 12px;
     font-size: 14px;
     outline: none;
+    color: var(--brand-dark);
 }
 
+/* Nav Links */
 .nav-mid {
     display: flex;
     align-items: center;
     gap: 20px;
     font-size: 14px;
-    font-weight: 400;
-    color: #1c1d1f;
+    font-weight: 500;
 }
 
 .nav-mid a {
-    color: #1c1d1f;
+    color: var(--brand-dark);
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .nav-mid a:hover {
-    color: #5624d0;
+    color: var(--brand-primary);
 }
 
 .nav-buttons {
@@ -88,40 +99,50 @@ nav {
     gap: 8px;
 }
 
+/* Buttons */
 .btn {
     padding: 10px 20px;
     font-weight: 700;
     font-size: 14px;
     text-decoration: none;
-    border: 1px solid #1c1d1f;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+    white-space: nowrap;
 }
 
 .btn-login {
     background-color: white;
-    color: #1c1d1f;
+    color: var(--brand-dark);
+    border: 1px solid var(--brand-dark);
 }
 
-.btn-signup {
-    background-color: #1c1d1f;
+.btn-login:hover {
+    background-color: var(--brand-bg);
+}
+
+.btn-signup,
+.btn-submit {
+    background-color: var(--brand-primary);
     color: white;
+    border: 1px solid var(--brand-primary);
 }
 
-.btn-signup:hover {
-    background-color: #333;
+.btn-signup:hover,
+.btn-submit:hover {
+    background-color: var(--brand-primary-hover);
+    border-color: var(--brand-primary-hover);
 }
 
 /* Hero Section */
 .hero {
     position: relative;
     height: 400px;
-    background-color: #f7f9fa;
-    /* Fallback */
-    background-image: url('https://img-c.udemycdn.com/notices/web_carousel_slide/image/e6cc1a30-2ee2-4b88-8797-15afb13824f9.jpg');
-    /* Example Udemy-like banner */
+    background-color: var(--brand-bg);
+    /* Placeholder pattern or image */
+    background-image: linear-gradient(135deg, rgba(0, 196, 204, 0.1) 0%, rgba(13, 42, 48, 0.05) 100%), url('https://img-c.udemycdn.com/notices/web_carousel_slide/image/e6cc1a30-2ee2-4b88-8797-15afb13824f9.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -133,7 +154,8 @@ nav {
     background-color: white;
     padding: 24px;
     max-width: 440px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(13, 42, 48, 0.1);
+    border-top: 4px solid var(--brand-primary);
 }
 
 .hero-box h1 {
@@ -142,14 +164,13 @@ nav {
     margin-bottom: 8px;
     line-height: 1.2;
     text-align: left;
-    /* Override global center */
-    color: #1c1d1f;
+    color: var(--brand-dark);
 }
 
 .hero-box p {
     font-size: 16px;
     margin-bottom: 0;
-    color: #1c1d1f;
+    color: var(--brand-text);
 }
 
 /* Featured Courses */
@@ -164,7 +185,7 @@ nav {
     font-weight: 700;
     margin-bottom: 24px;
     text-align: left;
-    color: #1c1d1f;
+    color: var(--brand-dark);
 }
 
 .course-grid {
@@ -177,6 +198,11 @@ nav {
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.course-card:hover {
+    transform: translateY(-2px);
 }
 
 .course-img {
@@ -184,6 +210,7 @@ nav {
     aspect-ratio: 16/9;
     object-fit: cover;
     border: 1px solid #d1d7dc;
+    border-bottom: none;
 }
 
 .course-title {
@@ -191,13 +218,13 @@ nav {
     font-weight: 700;
     margin-top: 8px;
     line-height: 1.2;
-    color: #1c1d1f;
+    color: var(--brand-dark);
     text-align: left;
 }
 
 .course-author {
     font-size: 12px;
-    color: #6a6f73;
+    color: var(--brand-text);
     margin: 4px 0;
     text-align: left;
 }
@@ -209,18 +236,15 @@ nav {
     font-size: 14px;
     font-weight: 700;
     color: #b4690e;
+    /* Rating gold - keep standard */
     text-align: left;
-}
-
-.course-rating span {
-    color: #e59819;
 }
 
 .course-price {
     font-size: 16px;
     font-weight: 700;
     margin-top: 8px;
-    color: #1c1d1f;
+    color: var(--brand-dark);
     text-align: left;
 }
 
@@ -244,12 +268,52 @@ nav {
     border: 1px solid #d1d7dc;
     font-weight: 700;
     text-align: center;
-    transition: box-shadow 0.2s;
-    color: #1c1d1f;
+    transition: all 0.2s;
+    color: var(--brand-dark);
 }
 
 .category-card:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 196, 204, 0.15);
+    background-color: var(--brand-bg);
+    border-color: var(--brand-primary);
+    color: var(--brand-dark);
+}
+
+/* Footer Theme */
+footer {
+    background-color: var(--brand-dark) !important;
+    color: white;
+}
+
+.footer-link,
+.footer-column a {
+    color: #a6dce0 !important;
+    /* Lighter Cyan for footer links */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-column a:hover {
+    color: white !important;
+}
+
+/* Auth Page Specifics */
+.auth-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 24px;
+    color: var(--brand-dark);
+    text-align: left;
+    border-bottom: 2px solid var(--brand-primary);
+    padding-bottom: 12px;
+}
+
+a {
+    color: var(--brand-primary);
+}
+
+a:hover {
+    color: var(--brand-primary-hover);
 }
 
 /* Footer Responsive Overrides */
