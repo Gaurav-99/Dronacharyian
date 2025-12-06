@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
@@ -24,15 +25,21 @@ app.set('view engine', 'ejs');
 
 
 /* MongoDB and mongoose */
-const dbURI = 'mongodb+srv://stige:stige@stige-week7-mogodb-basi.cttbz.mongodb.net/Dronacharyian?retryWrites=true&w=majority';
+const dbURI = process.env.MONGODB_URI;
 const port = process.env.PORT || 800;
+
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((result) => {
-    //console.log("result: of DBURI:- ", result);
-    app.listen(port);
-    console.log('listing on port:', port);
-  })
+  .then((result) => console.log('Connected to MongoDB'))
   .catch(err => console.log(err));
+
+// Only run app.listen if executed directly (e.g. locally)
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log('listing on port:', port);
+  });
+}
+
+module.exports = app;
 
 
 /* Routes */

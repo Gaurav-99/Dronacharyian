@@ -7,7 +7,7 @@ function checkUser(req) {
   const token = req.cookies.jwt;
   // Check json web token exists and is verified
   if (token) {
-    let res = jwt.verify(token, 'dronaAcharya');
+    let res = jwt.verify(token, process.env.JWT_SECRET);
 
     if (res.id) {
       return true;

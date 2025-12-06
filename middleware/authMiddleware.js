@@ -7,7 +7,7 @@ const requireAuth = (req, res, next) => {
 
   // Check json web token exists and is verified
   if (token) {
-    jwt.verify(token, 'dronaAcharya', (err, decodedToken) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
       if (err) {
         console.log('err.message');
         res.redirect('/sign');
@@ -17,7 +17,7 @@ const requireAuth = (req, res, next) => {
       }
     })
   } else {
-    res.redirect('/sign');  
+    res.redirect('/sign');
   }
 }
 
@@ -27,7 +27,7 @@ const checkUser = (req, res, next) => {
 
   // Check json web token exists and is verified
   if (token) {
-    jwt.verify(token, 'dronaAcharya', async (err, decodedToken) => {
+    jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
       if (err) {
         console.log('err.message');
         res.locals.user = null;
