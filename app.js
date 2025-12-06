@@ -14,13 +14,15 @@ const taskRoutes = require('./routes/taskRoutes');
 const app = express();
 
 /* middleware */
-app.use(express.static('public'));
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
 
 // view engine  
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 

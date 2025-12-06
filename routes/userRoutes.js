@@ -9,11 +9,11 @@ const routes = express.Router();
 routes.get('*', checkUser);
 
 routes.get('/userhomepage', requireAuth, (req, res) => {
-  res.render('../views/user/userHomepage.ejs');
+  res.render('user/userHomepage');
 });
 
 routes.get('/coursePage', requireAuth, (req, res) => {
-  res.render('../views/user/coursePage.ejs');
+  res.render('user/coursePage');
 });
 
 routes.get('/profile', userController.profile_get);

@@ -23,7 +23,7 @@ routes.get('/homepage', (req, res) => {
   if (checkUser(req)) {
     res.redirect('/userhomepage');
   } else {
-    res.render('../views/main/homePage.ejs');
+    res.render('main/homePage');
   }
 });
 
@@ -32,7 +32,7 @@ routes.get('/sign', (req, res) => {
   if (checkUser(req)) {
     res.redirect('/userhomepage');
   } else {
-    res.render('../views/main/sign.ejs');
+    res.render('main/sign');
   }
 });
 
@@ -41,7 +41,7 @@ routes.get('/login', (req, res) => {
   if (checkUser(req)) {
     res.redirect('/userhomepage');
   } else {
-    res.render('../views/main/sign.ejs');
+    res.render('main/sign');
   }
 });
 

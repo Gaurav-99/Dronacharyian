@@ -33,7 +33,7 @@ routes.get('/', (req, res) => {
     Task.find().sort({ createdAt: -1 })
       .then((result) => {
         console.log("Results of get all the tasks:- ", result);
-        res.render('../views/taskManager/index', { title: 'All Tasks', tasks: result });
+        res.render('taskManager/index', { title: 'All Tasks', tasks: result });
       })
       .catch(err => console.log(err));
   }
@@ -43,7 +43,7 @@ routes.get('/add', (req, res) => {
   if (!getUserId(req)) {
     res.redirect('./sign');
   } else {
-    res.render('../views/taskManager/add', { title: 'add a new task' });
+    res.render('taskManager/add', { title: 'add a new task' });
   }
 });
 
@@ -55,7 +55,7 @@ routes.get('/:id', (req, res) => {
   const id = req.params.id;
   Task.findById(id)
     .then((result) => {
-      res.render('../views/taskManager/detail', { title: 'task details', task: result });
+      res.render('taskManager/detail', { title: 'task details', task: result });
     })
     .catch(err => console.log(err));
 });
