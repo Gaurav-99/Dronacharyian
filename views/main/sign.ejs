@@ -6,64 +6,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dronacharyian</title>
   <link rel="shotcut icon" type="image/png" href="/imgs/logo2-edit.jpg" />
+  <link rel="stylesheet" href="/udemy-style.css" />
   <link rel="stylesheet" href="/sign-style.css" />
 </head>
 
 <body>
 
   <%- include('../partials/nav.ejs') %>
-    <div class="container" id="container">
-      <div class="form-container sign-up-container">
-        <form class="sign-up-form" action="/signup" method="POST">
-          <h1>Register</h1>
-          <!--           <div class="social-container">
+    <div class="auth-wrapper">
+      <div class="container" id="container">
+        <div class="form-container sign-up-container">
+          <form class="sign-up-form" action="/signup" method="POST">
+            <h1>Register</h1>
+            <!--           <div class="social-container">
             <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
             <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
           </div>
           <span>or use your email for registration</span> -->
-          <input type="text" placeholder="Full Name" name="name" required />
-          <div class="name error"></div>
-          <input type="email" placeholder="Email" name="email" required />
-          <div class="email error"></div>
-          <input type="password" placeholder="Password" name="password" required />
-          <div class="password error"></div>
+            <input type="text" placeholder="Full Name" name="name" required />
+            <div class="name error"></div>
+            <input type="email" placeholder="Email" name="email" required />
+            <div class="email error"></div>
+            <input type="password" placeholder="Password" name="password" required />
+            <div class="password error"></div>
 
-          <!--<label for="img">Upload Profile Image</label>
+            <!--<label for="img">Upload Profile Image</label>
           <input type="file" id="img" name="img" accept="image/x-png,image/gif,image/jpeg, image/jpg"> -->
 
-          <button>Sign Up</button>
-        </form>
-      </div>
-      <div class="form-container sign-in-container">
-        <form class="login-form" action="/login" method="POST">
-          <h1>Sign in</h1>
-          <!--           <div class="social-container">
+            <button>Sign Up</button>
+          </form>
+        </div>
+        <div class="form-container sign-in-container">
+          <form class="login-form" action="/login" method="POST">
+            <h1>Sign in</h1>
+            <!--           <div class="social-container">
             <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
             <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
           </div>
           <span>or use your account</span> -->
-          <br>
-          <div class="email error login"></div>
-          <input type="email" placeholder="Email" name="email" required />
-          <input type="password" placeholder="Password" name="password" required />
-          <div class="password error login"></div>
-          <a href="#">Forgot your password?</a>
-          <button>Sign In</button>
-        </form>
-      </div>
-      <div class="overlay-container">
-        <div class="overlay">
-          <div class="overlay-panel overlay-left">
-            <h1>Welcome Back!</h1>
-            <p>To keep connected with us please login with your personal info</p>
-            <button class="ghost" id="signIn">Sign In</button>
-          </div>
-          <div class="overlay-panel overlay-right">
-            <h1>Hello, Eklavyians!</h1>
-            <p>Enter your personal details and start your journey with us</p>
-            <button class="ghost" id="signUp">Sign Up</button>
+            <br>
+            <div class="email error login"></div>
+            <input type="email" placeholder="Email" name="email" required />
+            <input type="password" placeholder="Password" name="password" required />
+            <div class="password error login"></div>
+            <a href="#">Forgot your password?</a>
+            <button>Sign In</button>
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1>Welcome Back!</h1>
+              <p>To keep connected with us please login with your personal info</p>
+              <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1>Hello, Eklavyians!</h1>
+              <p>Enter your personal details and start your journey with us</p>
+              <button class="ghost" id="signUp">Sign Up</button>
+            </div>
           </div>
         </div>
       </div>
