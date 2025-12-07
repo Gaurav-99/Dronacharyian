@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../../partials/headeruser.ejs') %>
+<%- include('../partials/headeruser.ejs') %>
   <link rel="stylesheet" href="/task-style.css" />
   <!-- for head of the html -->
 
   <body>
-    <%- include('../../partials/navUser.ejs') %>
+    <%- include('../partials/navUser.ejs') %>
       <!-- for navigation bar -->
 
       <div class="details content">
@@ -26,14 +26,14 @@
         </div>
       </div>
 
-      <%- include('../../partials/footer.ejs') %>
+      <%- include('../partials/footer.ejs') %>
         <!-- for footer -->
 
         <script>
           // update listener
           const update = document.querySelector('a.update');
           update.addEventListener('click', (e) => {
-            const endpoint = `/tasks/${trashcan.dataset.doc}`;
+            const endpoint = `/tasks/${update.dataset.doc}`;
 
             fetch(endpoint, {
               method: 'PUT'

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../../partials/headeruser.ejs') %>
+<%- include('../partials/headeruser.ejs') %>
   <link rel="stylesheet" href="/task-style.css" />
 
   <body>
-    <%- include('../../partials/navUser.ejs') %>
+    <%- include('../partials/navUser.ejs') %>
 
       <div class="add-task content">
         <form action="/tasks/add" method="POST">
@@ -15,7 +15,7 @@
           <button>Submit</button>
         </form>
       </div>
-      <%- include('../../partials/footer.ejs')%>
+      <%- include('../partials/footer.ejs')%>
   </body>
 
 </html>
