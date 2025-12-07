@@ -3,6 +3,20 @@
 /* content wrapper */
 .content {
   max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  /* Aligns items to far ends */
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+h2 {
+  margin-bottom: 0;
   color: var(--brand-dark, #0D2A30);
   font-weight: 700;
   font-size: 2rem;
