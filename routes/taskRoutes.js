@@ -11,15 +11,19 @@ function getUserId(req) {
   const token = req.cookies.jwt;
 
   if (token) {
-    let res = jwt.verify(token, 'dronaAcharya');
-    if (res.id) {
-      return res.id;
-    } else {
+    try {
+      let res = jwt.verify(token, process.env.JWT_SECRET);
+      if (res.id) {
+        return res.id;
+      } else {
+        return null;
+      }
+    } catch (err) {
+      console.log('JWT Verification Error:', err.message);
       return null;
     }
   } else {
     return null;
-    ///res.redirect('/sign');
   }
 }
 

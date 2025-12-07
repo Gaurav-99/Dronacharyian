@@ -9,7 +9,7 @@ function allTasks(req, res) {
   const token = req.cookies.jwt;
 
   if (token) {
-    jwt.verify(token, 'dronaAcharya', (err, decodedToken) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
       if (err) {
         res.cookie('jwt', '', { maxAge: 1 });
         res.redirect('/sign');
