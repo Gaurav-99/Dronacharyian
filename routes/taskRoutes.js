@@ -2,6 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 
 const Task = require('../models/task');
+const User = require('../models/user');
 
 const routes = express.Router();
 
@@ -28,12 +29,16 @@ routes.get('/', (req, res) => {
 
   if (!getUserId(req)) {
     res.redirect('/sign');
-  }
-  else {
-    Task.find().sort({ createdAt: -1 })
-      .then((result) => {
-        console.log("Results of get all the tasks:- ", result);
-        res.render('taskManager/index', { title: 'All Tasks', tasks: result });
+  } else {
+    const userId = getUserId(req);
+    User.findById(userId)
+      .then((user) => {
+        Task.find({ userId: userId }).sort({ createdAt: -1 })
+          .then((result) => {
+            console.log("Results of get all the tasks:- ", result);
+            res.render('taskManager/index', { title: 'All Tasks', tasks: result, user: user });
+          })
+          .catch(err => console.log(err));
       })
       .catch(err => console.log(err));
   }
@@ -43,7 +48,12 @@ routes.get('/add', (req, res) => {
   if (!getUserId(req)) {
     res.redirect('./sign');
   } else {
-    res.render('taskManager/add', { title: 'add a new task' });
+    const userId = getUserId(req);
+    User.findById(userId)
+      .then((user) => {
+        res.render('taskManager/add', { title: 'add a new task', user: user });
+      })
+      .catch(err => console.log(err));
   }
 });
 
@@ -53,9 +63,14 @@ routes.get('/:id', (req, res) => {
     res.redirect('/sign');
   }
   const id = req.params.id;
-  Task.findById(id)
-    .then((result) => {
-      res.render('taskManager/detail', { title: 'task details', task: result });
+  const userId = getUserId(req);
+  User.findById(userId)
+    .then((user) => {
+      Task.findById(id)
+        .then((result) => {
+          res.render('taskManager/detail', { title: 'task details', task: result, user: user });
+        })
+        .catch(err => console.log(err));
     })
     .catch(err => console.log(err));
 });
