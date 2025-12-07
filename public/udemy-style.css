@@ -1,4 +1,4 @@
-/* --- Brand Refresh: Teal Theme --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 
 :root {
     --brand-primary: #00C4CC;
@@ -7,6 +7,11 @@
     --brand-text: #0e3f45;
     --brand-bg: #E0F7F8;
     --nav-height: 72px;
+    --font-primary: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-primary);
 }
 
 /* Navigation */
@@ -21,6 +26,7 @@ nav {
     border-bottom: 2px solid var(--brand-bg);
     position: relative;
     z-index: 1000;
+    font-family: var(--font-primary);
 }
 
 .nav-left {
@@ -30,7 +36,7 @@ nav {
 }
 
 .nav-logo {
-    font-family: 'Times New Roman', serif;
+    font-family: var(--font-primary);
     font-size: 24px;
     font-weight: bold;
     color: var(--brand-dark);
