@@ -1,69 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
-body {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
-  font-family: "Noto Serif", serif;
-  max-width: 1200px;
-}
-p,
-h1,
-h2,
-h3,
-a,
-ul {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  color: black;
+/* Task specific styles */
+.content {
+  margin: 40px 24px;
 }
 
-/* nav & footer styles */
-nav {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 60px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  text-transform: uppercase;
-}
-nav ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-nav li {
-  list-style-type: none;
-  margin-left: 20px;
-  color: black;
-}
-nav h1 {
-  font-size: 3em;
-}
-nav p,
-nav a {
-  color: black;
-  font-weight: 600;
-}
-.nav-logo {
-  font-size: 1.4rem;
-  color: #999;
-}
-.nav-logo img {
-  width: 30px;
-}
-footer {
-  color: #777;
-  text-align: center;
-  margin: 80px auto 20px;
-}
 h2 {
   margin-bottom: 40px;
 }
+
 h3 {
   text-transform: capitalize;
   margin-bottom: 8px;
 }
+
 .content {
   margin-left: 20px;
 }
@@ -75,6 +23,7 @@ h3 {
   padding-left: 30px;
   border-left: 6px solid rgb(20, 23, 220);
 }
+
 .tasks a:hover h3 {
   color: rgb(20, 23, 220);
 }
@@ -86,10 +35,12 @@ h3 {
   padding: 8px;
   border: 0;
 }
+
 .com {
   background-color: rgb(30, 194, 30);
   width: 100px;
 }
+
 .inc {
   background-color: rgb(230, 35, 35);
   width: 100px;
@@ -100,9 +51,11 @@ h3 {
   position: relative;
   display: flex;
 }
+
 .content-wrapper {
   border: black;
 }
+
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -111,9 +64,11 @@ h3 {
 .content p {
   width: 250px;
 }
+
 .description {
   display: flex;
 }
+
 .edit {
   color: white;
   display: flex;
@@ -123,6 +78,7 @@ h3 {
   flex-direction: row;
   justify-content: space-around;
 }
+
 .update {
   /* position: absolute; */
   top: 0;
@@ -132,11 +88,13 @@ h3 {
   background-color: rgb(30, 194, 30);
   color: white;
 }
+
 .update:hover {
   cursor: pointer;
   background-color: rgb(54, 212, 33);
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
 }
+
 .delete {
   /*  position: absolute; */
   top: 0;
@@ -145,6 +103,7 @@ h3 {
   background-color: rgba(223, 29, 29, 0.835);
   color: white;
 }
+
 .delete:hover {
   cursor: pointer;
   background-color: rgb(246, 19, 19);
@@ -156,6 +115,7 @@ h3 {
   max-width: 400px;
   margin: 0 auto;
 }
+
 .add-task input,
 .add-task textarea {
   display: block;
@@ -163,13 +123,16 @@ h3 {
   margin: 10px 0;
   padding: 8px;
 }
+
 .add-task label {
   display: block;
   margin-top: 24px;
 }
+
 textarea {
   height: 120px;
 }
+
 .add-task button {
   margin-top: 20px;
   background: crimson;
