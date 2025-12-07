@@ -8,7 +8,10 @@
     <%- include('../partials/navUser.ejs') %>
 
       <div class="tasks content">
-        <h2> All Tasks </h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <h2>All Tasks</h2>
+          <a href="/tasks/add" class="btn btn-submit">+ Add New Task</a>
+        </div>
         <% if (tasks.length> 0) { tasks.forEach(task => {%>
           <% if (task.completed==false) { %>
             <a class="showDetails" href="/tasks/<%=task._id%>">
