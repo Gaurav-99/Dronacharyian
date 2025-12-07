@@ -1,144 +1,202 @@
-/* Task specific styles */
+/* Task specific styles linked with udemy-style.css */
+
 .content {
-  margin: 40px 24px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
 }
 
 h2 {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
+  color: var(--brand-dark, #0D2A30);
+  font-weight: 700;
+  font-size: 2rem;
 }
 
-h3 {
+h3.title {
   text-transform: capitalize;
   margin-bottom: 8px;
+  color: var(--brand-dark, #0D2A30);
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
-.content {
-  margin-left: 20px;
+/* Task Cards */
+.tasks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
 }
 
-/* index styles */
-.tasks a {
-  display: block;
-  margin: 40px 0;
-  padding-left: 30px;
-  border-left: 6px solid rgb(20, 23, 220);
+.tasks a.showDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  border: 1px solid #d1d7dc;
+  padding: 16px;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  min-height: 150px;
 }
 
-.tasks a:hover h3 {
-  color: rgb(20, 23, 220);
+.tasks a.showDetails:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: var(--brand-primary, #00C4CC);
+}
+
+
+.tasks a.showDetails h3 {
+  color: var(--brand-dark, #0D2A30);
+}
+
+.tasks a.showDetails:hover h3 {
+  color: var(--brand-primary-hover, #009aa0);
 }
 
 .status {
-  padding: 5px;
-  border-radius: 15px;
+  padding: 4px 12px;
+  border-radius: 4px;
   color: white;
-  padding: 8px;
-  border: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: auto;
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .com {
-  background-color: rgb(30, 194, 30);
-  width: 100px;
+  background-color: #28a745;
+  /* Success Green */
+  color: white;
 }
 
 .inc {
-  background-color: rgb(230, 35, 35);
-  width: 100px;
+  background-color: #ffc107;
+  /* Warning Yellow */
+  color: #333;
 }
 
-/* details styles */
-.details {
-  position: relative;
-  display: flex;
+.no-tasks {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #6a6f73;
+  font-size: 1.2rem;
+  margin-top: 40px;
+}
+
+/* Details Page */
+.details.content {
+  background: white;
+  padding: 32px;
+  border: 1px solid #d1d7dc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
 }
 
 .content-wrapper {
-  border: black;
+  margin-bottom: 32px;
 }
 
-.content-wrapper {
-  display: flex;
-  flex-direction: column;
+.content p.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--brand-text, #0e3f45);
+  margin-top: 16px;
 }
 
-.content p {
-  width: 250px;
-}
-
-.description {
-  display: flex;
-}
 
 .edit {
-  color: white;
   display: flex;
-  padding: 5px;
-  width: 100%;
-  height: 100%;
-  flex-direction: row;
-  justify-content: space-around;
+  gap: 16px;
+  justify-content: flex-start;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
 }
 
-.update {
-  /* position: absolute; */
-  top: 0;
-  right: 0;
-  border-radius: 15px;
-  padding: 8px;
-  background-color: rgb(30, 194, 30);
+a.update,
+a.delete {
+  padding: 10px 20px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  display: inline-block;
+}
+
+a.update {
+  background-color: var(--brand-primary, #00C4CC);
   color: white;
 }
 
-.update:hover {
-  cursor: pointer;
-  background-color: rgb(54, 212, 33);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+a.update:hover {
+  background-color: var(--brand-primary-hover, #009aa0);
 }
 
-.delete {
-  /*  position: absolute; */
-  top: 0;
-  border-radius: 50%;
-  padding: 8px;
-  background-color: rgba(223, 29, 29, 0.835);
+a.delete {
+  background-color: #dc3545;
   color: white;
 }
 
-.delete:hover {
-  cursor: pointer;
-  background-color: rgb(246, 19, 19);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+a.delete:hover {
+  background-color: #c82333;
 }
 
-/* create styles */
+/* Add Task Form */
 .add-task form {
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
+  background: white;
+  padding: 32px;
+  border: 1px solid #d1d7dc;
+}
+
+.add-task label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: var(--brand-dark);
 }
 
 .add-task input,
 .add-task textarea {
   display: block;
   width: 100%;
-  margin: 10px 0;
-  padding: 8px;
+  padding: 12px;
+  border: 1px solid #1c1d1f;
+  margin-bottom: 24px;
+  font-family: inherit;
+  font-size: 1rem;
 }
 
-.add-task label {
-  display: block;
-  margin-top: 24px;
+.add-task input:focus,
+.add-task textarea:focus {
+  outline: none;
+  border-color: var(--brand-primary);
 }
 
-textarea {
-  height: 120px;
+.add-task textarea {
+  min-height: 150px;
+  resize: vertical;
 }
 
 .add-task button {
-  margin-top: 20px;
-  background: crimson;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--brand-dark);
   color: white;
-  padding: 6px;
-  border: 0;
-  font-size: 1.2em;
+  font-weight: 700;
+  border: none;
   cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+}
+
+.add-task button:hover {
+  background-color: #000;
 }
