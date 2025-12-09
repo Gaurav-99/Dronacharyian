@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/header.ejs') %>
+        <link rel="stylesheet" href="/udemy-style.css" />
+        <style>
+            .updates-container {
+                max-width: 800px;
+                margin: 48px auto;
+                padding: 0 24px;
+            }
+
+            .update-entry {
+                margin-bottom: 40px;
+                border-bottom: 1px solid #d1d7dc;
+                padding-bottom: 24px;
+            }
+
+            .update-version {
+                font-size: 24px;
+                font-weight: 700;
+                color: #2d2f31;
+                margin-bottom: 8px;
+            }
+
+            .update-date {
+                color: #6a6f73;
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+
+            .update-list {
+                margin-left: 20px;
+            }
+
+            .update-list li {
+                margin-bottom: 8px;
+                line-height: 1.5;
+            }
+
+            .badge-new {
+                background-color: #ECEB98;
+                color: #3d3c0a;
+                padding: 4px 8px;
+                font-size: 12px;
+                font-weight: 700;
+                margin-left: 8px;
+            }
+        </style>
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+        <div class="updates-container">
+            <h1>What's New <span style="font-size: 16px; color: #6a6f73; font-weight: 400;">(Changelog)</span></h1>
+
+            <div class="update-entry">
+                <div class="update-version">v1.0.0 <span class="badge-new">Latest</span></div>
+                <div class="update-date">December 07, 2025</div>
+                <ul class="update-list">
+                    <li><strong>Unified Course Page:</strong> Merged Homepage and Course Page into a single, seamless
+                        experience for both guests and members.</li>
+                    <li><strong>Dynamic Navigation:</strong> The navigation bar now automatically switches between
+                        "Guest" and "My Learning" modes across the site.</li>
+                    <li><strong>New Courses:</strong> Added 20 diverse courses covering IT, HR, Music, and Business.
+                    </li>
+                    <li><strong>Performance Fix:</strong> Resolved a critical server hang issue for guest users.</li>
+                    <li><strong>Task Manager Reskin:</strong> Updated Task Manager to match the new visual design
+                        system.</li>
+                </ul>
+            </div>
+
+            <div class="update-entry">
+                <div class="update-version">v0.9.0</div>
+                <div class="update-date">December 06, 2025</div>
+                <ul class="update-list">
+                    <li><strong>Brand Refresh:</strong> Introduced new Teal branding and logo.</li>
+                    <li><strong>Security Update:</strong> Enhanced JWT handling with environment variables.</li>
+                </ul>
+            </div>
+        </div>
+
+        <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

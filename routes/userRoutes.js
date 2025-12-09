@@ -13,7 +13,7 @@ routes.get('/userhomepage', requireAuth, (req, res) => {
 });
 
 routes.get('/coursePage', requireAuth, (req, res) => {
-  res.render('user/coursePage');
+  res.render('main/coursePage');
 });
 
 routes.get('/profile', userController.profile_get);

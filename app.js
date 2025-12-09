@@ -21,6 +21,12 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
 
+// Make version available to all views
+app.use((req, res, next) => {
+  res.locals.version = process.env.npm_package_version || '1.0.0';
+  next();
+});
+
 // view engine  
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -46,7 +52,7 @@ module.exports = app;
 
 /* Routes */
 app.get('/', (req, res) => {
-  res.redirect('/homepage');
+  res.redirect('/coursePage');
 });
 app.use(mainRoutes);
 app.use(authRoutes);
