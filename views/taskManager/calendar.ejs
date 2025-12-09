@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/header.ejs') %>
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+        <style>
+            .calendar-container {
+                max-width: 1100px;
+                margin: 40px auto;
+                padding: 0 20px;
+            }
+
+            #calendar {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,listWeek'
+                    },
+                    events: '/tasks/api/events', // Fetch events from our API
+                    eventClick: function (info) {
+                        if (info.event.url) {
+                            window.location.href = info.event.url;
+                            info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
+                        }
+                    }
+                });
+                calendar.render();
+            });
+        </script>
+</head>
+
+<body>
+    <%- include('../partials/navUser.ejs') %>
+
+        <div class="calendar-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1 style="font-family: 'Times New Roman', serif;">My Calendar</h1>
+                <a href="/tasks" class="btn btn-secondary">Back to Tasks</a>
+            </div>
+            <div id='calendar'></div>
+        </div>
+
+        <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

@@ -14,10 +14,14 @@
             <%=task.title%>
           </h2>
           <div class="content">
-            <p class="description">
-
-              <%=task.description%>
-            </p>
+            <% if (task.dueDate) { %>
+              <p style="color: #6a6f73; margin-bottom: 8px;"><strong>Due Date:</strong>
+                <%= new Date(task.dueDate).toDateString() %>
+              </p>
+              <% } %>
+                <p class="description">
+                  <%=task.description%>
+                </p>
           </div>
         </div>
         <div class="edit">

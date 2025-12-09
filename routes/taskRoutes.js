@@ -1,133 +1,23 @@
 const express = require('express');
-const jwt = require('jsonwebtoken');
+const router = express.Router();
+const taskController = require('../controllers/taskController');
+const { requireAuth, checkUser } = require('../middleware/authMiddleware');
 
-const Task = require('../models/task');
-const User = require('../models/user');
+// All routes here start with /tasks
 
-const routes = express.Router();
+// Calendar Routes (Must be before :id to avoid conflict)
+router.get('/calendar', requireAuth, checkUser, taskController.task_calendar_get);
+router.get('/api/events', requireAuth, taskController.task_api_get);
 
-// get token function
-function getUserId(req) {
-  const token = req.cookies.jwt;
+// Standard CRUD
+router.get('/', requireAuth, checkUser, taskController.task_index);
+router.post('/', requireAuth, taskController.task_create_post); // Was inline POST /add
+router.get('/create', requireAuth, checkUser, taskController.task_create_get); // Standardize on /create or keep /add? Keeping /add for now in controller but route can be /create
+// Note: Controller has task_create_get rendering 'taskManager/add'. Let's route /add to it.
+router.get('/add', requireAuth, checkUser, taskController.task_create_get);
+router.post('/add', requireAuth, taskController.task_create_post);
 
-  if (token) {
-    try {
-      let res = jwt.verify(token, process.env.JWT_SECRET);
-      if (res.id) {
-        return res.id;
-      } else {
-        return null;
-      }
-    } catch (err) {
-      console.log('JWT Verification Error:', err.message);
-      return null;
-    }
-  } else {
-    return null;
-  }
-}
+router.get('/:id', requireAuth, checkUser, taskController.task_details);
+router.delete('/:id', requireAuth, taskController.task_delete);
 
-
-// Here '/' -> '/tasks'
-routes.get('/', (req, res) => {
-
-  if (!getUserId(req)) {
-    res.redirect('/sign');
-  } else {
-    const userId = getUserId(req);
-    User.findById(userId)
-      .then((user) => {
-        Task.find({ userId: userId }).sort({ createdAt: -1 })
-          .then((result) => {
-            console.log("Results of get all the tasks:- ", result);
-            res.render('taskManager/index', { title: 'All Tasks', tasks: result, user: user });
-          })
-          .catch(err => console.log(err));
-      })
-      .catch(err => console.log(err));
-  }
-});
-
-routes.get('/add', (req, res) => {
-  if (!getUserId(req)) {
-    res.redirect('./sign');
-  } else {
-    const userId = getUserId(req);
-    User.findById(userId)
-      .then((user) => {
-        res.render('taskManager/add', { title: 'add a new task', user: user });
-      })
-      .catch(err => console.log(err));
-  }
-});
-
-routes.get('/:id', (req, res) => {
-
-  if (!getUserId(req)) {
-    res.redirect('/sign');
-  }
-  const id = req.params.id;
-  const userId = getUserId(req);
-  User.findById(userId)
-    .then((user) => {
-      Task.findById(id)
-        .then((result) => {
-          res.render('taskManager/detail', { title: 'task details', task: result, user: user });
-        })
-        .catch(err => console.log(err));
-    })
-    .catch(err => console.log(err));
-});
-
-
-// Add a new task
-routes.post('/add', (req, res) => {
-
-  const userId = getUserId(req);
-  if (!userId) {
-    res.redirect('/sign');
-  }
-
-  const newTask = req.body;
-  newTask["userId"] = userId;
-  newTask["completed"] = false;
-
-  console.log(newTask);
-  const task = new Task(newTask);
-
-  task.save()
-    .then((result) => {
-      res.redirect('/tasks');
-    })
-    .catch(err => console.log(err));
-});
-
-// Update a task to completed
-routes.put('/:id', (req, res) => {
-
-  const task = new Task({
-    _id: req.params.id,
-    description: req.params.description,
-    completed: true
-  });
-
-  Task.updateOne({ _id: req.params.id }, task)
-    .then((result) => {
-      res.json({ redirect: '/tasks' })
-    })
-    .catch(err => console.log(err));
-
-});
-
-routes.delete('/:id', (req, res) => {
-  const id = req.params.id;
-
-  Task.findByIdAndDelete(id)
-    .then((results) => {
-      res.json({ redirect: '/tasks' });
-    })
-    .catch(err => console.log(err));
-
-});
-
-module.exports = routes;
+module.exports = router;
