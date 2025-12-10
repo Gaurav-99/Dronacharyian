@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header.ejs') %>
+    <style>
+        .about-hero {
+            background-color: #f7f9fa;
+            padding: 64px 24px;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 48px auto;
+            padding: 0 24px;
+            line-height: 1.6;
+            color: #2d2f31;
+        }
+
+        .about-content h2 {
+            font-family: 'Times New Roman', serif;
+            font-size: 2rem;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        .about-content p {
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+    </style>
+
+    <body>
+        <% if (user) { %>
+            <%- include('../partials/navUser.ejs') %>
+                <% } else { %>
+                    <%- include('../partials/nav.ejs') %>
+                        <% } %>
+
+                            <section class="about-hero">
+                                <h1
+                                    style="font-family: 'Times New Roman', serif; font-size: 3rem; margin-bottom: 16px;">
+                                    We share knowledge with the world</h1>
+                                <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Dronacharyian is a
+                                    global destination for online learning, connecting students to the best instruction
+                                    in the world.</p>
+                            </section>
+
+                            <div class="about-content">
+                                <h2>Our Mission</h2>
+                                <p>At Dronacharyian, we believe that education is the key to unlocking human potential.
+                                    Our mission is to create new possibilities for people and organizations everywhere
+                                    by connecting them to the knowledge and skills they need to succeed in a changing
+                                    world.</p>
+
+                                <h2>Our Story</h2>
+                                <p>Founded in 2024, Dronacharyian began with a simple idea: accessible education for
+                                    all. Today, we've grown into a vibrant community of learners and instructors,
+                                    covering topics from detailed technical skills like Python and Data Science to
+                                    creative arts like Music and Photography.</p>
+
+                                <h2>Join Us</h2>
+                                <p>Whether you want to learn a new skill to advance your career or just want to explore
+                                    a new hobby, Dronacharyian is here for you. Join millions of learners around the
+                                    world who are mastering new skills every day.</p>
+                            </div>
+
+                            <%- include('../partials/footer.ejs') %>
+    </body>
+
+</html>

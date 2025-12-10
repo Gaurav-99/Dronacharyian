@@ -12,6 +12,10 @@ routes.get('/updates', checkUser, (req, res) => {
   res.render('main/updates'); // Render the updates page
 });
 
+routes.get('/about', checkUser, (req, res) => {
+  res.render('main/about');
+});
+
 routes.get('/sign', checkUser, (req, res) => {
   if (res.locals.user) {
     res.redirect('/coursePage');
