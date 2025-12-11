@@ -40,4 +40,4 @@ This project is configured for deployment on **Vercel**.
 3.  Deploy! (`vercel.json` handles the serverless configuration).
 
 ---
-> *Built for educational purposes.*
+> *Built using Google's Antigravity*
