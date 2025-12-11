@@ -23,34 +23,6 @@ Dronacharyian is a feature-rich, responsive web application designed to facilita
 *   **Authentication**: JSON Web Tokens (JWT), Bcrypt.
 *   **Deployment**: Vercel (Serverless Configuration).
 
-## 🚀 Getting Started
-
-Follow these steps to run the project locally:
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/Gaurav-99/Dronacharyian.git
-cd Dronacharyian
-```
-
-### 2. Install Dependencies
-```bash
-npm install
-```
-
-### 3. Configure Environment Variables
-Create a `.env` file in the root directory and add the following:
-```env
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-PORT=800
-```
-
-### 4. Run the Application
-```bash
-npm start
-```
-The app will be available at `http://localhost:800` (or your defined port).
 
 ## 📂 Project Structure
 
